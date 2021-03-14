@@ -1,0 +1,24 @@
+{
+  "name": "node-js-practice",
+  "version": "1.0.0",
+  "description": "NodeJS Practice",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "start-server": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vijayaalayan/Node-JS-Practice.git"
+  },
+  "author": "Vijayaalayan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vijayaalayan/Node-JS-Practice/issues"
+  },
+  "homepage": "https://github.com/Vijayaalayan/Node-JS-Practice#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
