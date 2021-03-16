@@ -1,4 +1,5 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 
 const app = express();
 
@@ -8,17 +9,23 @@ const app = express();
 //     next();
 // });
 
-app.use('/',(req,res,next)=>{
-    console.log('This always runs');
-    next();
+// app.use('/',(req,res,next)=>{
+//     console.log('This always runs');
+//     next();
+// });
+
+app.use(bodyParser.urlencoded({extended:false}));
+
+app.use('/add-food',(req,res,next) =>{
+    res.send('<form action="/food" method="POST"><input type="text" name="title"><button type="submit">Add Food</button></form>');
 });
 
-app.use('/add-page',(req,res,next) =>{
-    res.send('Add Page');
+app.use('/food',(req,res,next)=>{
+    console.log(req.body.title);
+    res.redirect('/');
 });
 
 app.use('/',(req,res,next)=>{
-    console.log("In Second Middleware");
     res.send('<h1>ExpressJS</h1>')
 });
 
