@@ -20,6 +20,8 @@ app.use('/add-food',(req,res,next) =>{
     res.send('<form action="/food" method="POST"><input type="text" name="title"><button type="submit">Add Food</button></form>');
 });
 
+
+//use it with either post or get as in like app.get or app.post to parse
 app.use('/food',(req,res,next)=>{
     console.log(req.body.title);
     res.redirect('/');
