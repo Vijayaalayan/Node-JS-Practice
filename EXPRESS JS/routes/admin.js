@@ -10,10 +10,12 @@ router.get('/add-food',(req,res,next) =>{
     res.sendFile(path.join(rootDir,'views','add-food.html'));
 });
 
+const foods = [];
 //same path can be used for different method
 router.post('/add-food',(req,res,next)=>{
-    console.log(req.body.title);
+    foods.push({title : req.body.title})
     res.redirect('/');
 });
 
-module.exports = router;
+exports.routes = router;
+exports.foods = foods;
