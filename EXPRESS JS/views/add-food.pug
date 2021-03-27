@@ -1,25 +1,14 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible", content="IE=edge")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title #{docTitle}
-        link(rel="stylesheet", href="/css/main.css")
-        link(rel="stylesheet", href="/css/forms.css")
-        //- link(rel="stylesheet", href="/css/food.css")
-    body 
-        header.main-header
-            nav.main-header__nav
-                ul.main-header__item-list
-                    li.main-header__item
-                        a(href="/") Shop 
-                    li.main-header__item
-                        a.active(href="/admin/add-food") Add Food
-        main
-            form.form-food(action="add-food", method="POST")
-                .form-control
-                    label(for="title") Food Name
-                    input(type="text", name="title", id="title")
-                button.btn(type="submit") Add Product
-            
+extends layouts/main-layout.pug
+
+block styles 
+    link(rel="stylesheet", href="/css/food.css")
+    link(rel="stylesheet", href="/css/forms.css")
+
+block content
+    main
+        form.form-food(action="add-food", method="POST")
+            .form-control
+                label(for="title") Food Name
+                input(type="text", name="title", id="title")
+            button.btn(type="submit") Add Product
+
