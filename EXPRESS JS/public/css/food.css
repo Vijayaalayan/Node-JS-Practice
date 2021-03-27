@@ -1,37 +1,25 @@
-.form-food{
+.product-form {
     width: 20rem;
     max-width: 90%;
     margin: auto;
-
 }
 
-.form-control{
-    margin: 1rem 0;
+.product-item {
+    width: 20rem;
+    max-width: 95%;
 }
 
-.form-control label,
-.form-control input{
-    display: block;
-    width: 100%;
+.product__title {
+    font-size: 1.2rem;
+    text-align: center;
 }
 
-.form-control input{
-    border: 1px solid  rgb(233, 83, 83);
-    font:inherit;
-    border-radius: 2px;
+.product__price {
+    text-align: center;
+    color: #4d4d4d;
+    margin-bottom: 0.5rem;
 }
 
-button{
-    font: inherit;
-    border: 1px solid #2202b3;
-    color: #2202b3;
-    background-color:white;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-button:hover,
-button:active{
-    color:white;
-    background-color:  #2202b3;
+.product__description {
+    text-align: center;
 }
