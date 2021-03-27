@@ -8,7 +8,7 @@ const app = express();
 //use it with either post or get as in like app.get or app.post to parse
 router.get('/add-food',(req,res,next) =>{
     // res.sendFile(path.join(rootDir,'views','add-food.html'));
-    res.render('add-food',{docTitle:'Add Food', path:'/admin/add-food'})
+    res.render('add-food',{docTitle:'Add Food', path:'/admin/add-food',foodCSS:true,formsCSS:true,activeAddFood:true,})
 });
 
 const foods = [];
