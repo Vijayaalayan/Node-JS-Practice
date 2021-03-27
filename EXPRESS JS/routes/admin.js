@@ -14,7 +14,7 @@ router.get('/add-food',(req,res,next) =>{
 const foods = [];
 //same path can be used for different method
 router.post('/add-food',(req,res,next)=>{
-    foods.push({title : req.body.title})
+    foods.push({title : req.body.title, data : req.body.image, price : req.body.price, desc : req.body.desc})
     res.redirect('/');
 });
 

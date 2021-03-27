@@ -9,6 +9,12 @@ block content
         form.form-food(action="add-food", method="POST")
             .form-control
                 label(for="title") Food Name
-                input(type="text", name="title", id="title")
+                input(type="text", name="title")#title
+                label(for="image") Image
+                input(type="text", name="image")#image
+                label(for="price") Price
+                input(type="text", name="price")#price
+                label(for="desc") Description
+                input(type="text", name="desc")#desc
             button.btn(type="submit") Add Product
 
