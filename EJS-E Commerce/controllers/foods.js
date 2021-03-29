@@ -6,13 +6,15 @@ exports.getAddFood = (req,res,next) =>{
 }
 
 exports.postAddFood = (req,res,next)=>{
-    const food = new Food(req.body.title,req.body.data,req.body.price,req.body.desc);
+    const food = new Food(req.body.title,req.body.image,req.body.price,req.body.desc);
     food.save();
     res.redirect('/');
 }
 
 exports.getFood = (req, res, next) => {
     // res.sendFile(path.join(rootDir,'views','shop.html'));
-    const foods = Food.fetchAll();
-    res.render('shop', { food: foods, docTitle: 'Shop', path: '/', hasFood: foods.length > 0,activeShop:true,foodCSS:true })
+    const foods = Food.fetchAll(foods =>{
+        res.render('shop', { food: foods, docTitle: 'Shop', path: '/', hasFood: foods.length > 0,activeShop:true,foodCSS:true })
+    });
+   
 }
