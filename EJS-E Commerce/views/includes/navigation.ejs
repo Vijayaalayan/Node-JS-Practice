@@ -5,7 +5,19 @@
                 <a class="<%=path === '/'?'active':''%>"href="/">Shop</a>
             </li>
             <li class="main-header__item">
+                <a class="<%=path === '/products'?'active':''%>"href="/products">Foods</a>
+            </li>
+            <li class="main-header__item">
+                <a class="<%=path === '/cart'?'active':''%>"href="/cart">Cart</a>
+            </li>
+            <li class="main-header__item">
+                <a class="<%=path === '/orders'?'active':''%>"href="/orders">Orders</a>
+            </li>
+            <li class="main-header__item">
                 <a class="<%=path === '/admin/add-food'?'active':''%>"href="/admin/add-food">Add Product</a>
+            </li>
+            <li class="main-header__item">
+                <a class="<%=path === '/admin/foods'?'active':''%>"href="/admin/foods">Admin Foods</a>
             </li>
         </ul>
     </nav>

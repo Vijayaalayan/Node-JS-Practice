@@ -1,9 +1,9 @@
-<%-include('includes/head.ejs')%>
+<%-include('../includes/head.ejs')%>
     <link rel="stylesheet" href="/css/food.css">
     <link rel="stylesheet" href="/css/forms.css">
 </head>
 <body>
-    <%-include('includes/navigation.ejs')%>
+    <%-include('../includes/navigation.ejs')%>
     <main>
         <form class="form-food"action="add-food" method="POST">
             <div class="form-control">
@@ -12,11 +12,11 @@
                 <label for="title">Image</label>
                 <input type="text" name="image" id="image">
                 <label for="title">Price</label>
-                <input type="text" name="price" id="price">
+                <input type="number" name="price" id="price" step="10">
                 <label for="title">Description</label>
-                <input type="text" name="desc" id="desc">
+                <textarea type="text" name="desc" id="desc"></textarea>
             </div>
             <button class="btn" type="submit">Add Product</button>
         </form>
     </main>
-<%-include('includes/end.ejs')%>
+<%-include('../includes/end.ejs')%>

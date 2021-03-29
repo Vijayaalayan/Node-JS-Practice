@@ -101,9 +101,23 @@ main {
   border-radius: 3px;
   cursor: pointer;
 }
+.btn__del {
+  font: inherit;
+  border: 1px solid black;
+  color: black;
+  background: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
 
 .btn:hover,
 .btn:active {
   background-color: rgb(233, 83, 83);
+  color: white;
+}
+
+.btn__del:hover,
+.btn__del:active {
+  background-color: black;
   color: white;
 }

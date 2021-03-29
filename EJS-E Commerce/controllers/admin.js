@@ -2,7 +2,7 @@ const Food = require('../models/food');
 
 exports.getAddFood = (req,res,next) =>{
     // res.sendFile(path.join(rootDir,'views','add-food.html'));
-    res.render('add-food',{docTitle:'Add Food', path:'/admin/add-food',foodCSS:true,formsCSS:true,activeAddFood:true,})
+    res.render('admin/add-food',{docTitle:'Add Food', path:'/admin/add-food'})
 }
 
 exports.postAddFood = (req,res,next)=>{
@@ -14,7 +14,7 @@ exports.postAddFood = (req,res,next)=>{
 exports.getFood = (req, res, next) => {
     // res.sendFile(path.join(rootDir,'views','shop.html'));
     const foods = Food.fetchAll(foods =>{
-        res.render('shop', { food: foods, docTitle: 'Shop', path: '/', hasFood: foods.length > 0,activeShop:true,foodCSS:true })
+        res.render('admin/foods', { food: foods, docTitle: 'Admin Foods', path: '/admin/foods'})
     });
    
 }
