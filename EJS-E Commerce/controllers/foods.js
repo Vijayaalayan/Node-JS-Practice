@@ -1,4 +1,4 @@
-const foods = [];
+const Food = require('../models/food');
 
 exports.getAddFood = (req,res,next) =>{
     // res.sendFile(path.join(rootDir,'views','add-food.html'));
@@ -6,11 +6,13 @@ exports.getAddFood = (req,res,next) =>{
 }
 
 exports.postAddFood = (req,res,next)=>{
-    foods.push({title : req.body.title, data : req.body.image, price : req.body.price, desc : req.body.desc})
+    const food = new Food(req.body.title,req.body.data,req.body.price,req.body.desc);
+    food.save();
     res.redirect('/');
 }
 
 exports.getFood = (req, res, next) => {
     // res.sendFile(path.join(rootDir,'views','shop.html'));
+    const foods = Food.fetchAll();
     res.render('shop', { food: foods, docTitle: 'Shop', path: '/', hasFood: foods.length > 0,activeShop:true,foodCSS:true })
 }

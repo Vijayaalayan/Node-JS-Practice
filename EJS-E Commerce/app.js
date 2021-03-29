@@ -14,7 +14,7 @@ app.set('views','views');
 
 const adminData = require('./routes/admin.js');
 const shopRouter = require('./routes/shop');
-const errorController = require('./controller/error')
+const errorController = require('./controllers/error')
 
 app.use(bodyParser.urlencoded({extended:false}));
 
