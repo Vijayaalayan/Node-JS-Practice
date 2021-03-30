@@ -8,12 +8,19 @@ exports.getIndex = (req, res, next) => {
    
 }
 
-exports.getFood = (req, res, next) => {
+exports.getFoods = (req, res, next) => {
     // res.sendFile(path.join(rootDir,'views','shop.html'));
     const foods = Food.fetchAll(foods =>{
         res.render('shop/product-list', { food: foods, docTitle: 'Shop', path: '/products'})
     });
    
+}
+
+exports.getFood = (req,res,next) =>{
+    const prodId = req.params.productId;
+    Food.findById(prodId,food =>{
+        res.render('shop/product-details',{food:food,docTitle:food.title,path:'/products'})
+    })
 }
 
 exports.getCart = (req,res,next) =>{
