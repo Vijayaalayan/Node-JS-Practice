@@ -19,7 +19,10 @@
                             <p class="product__description"><%=foods.desc%></p>
                         </div>
                         <div class="card__actions">
-                            <%-include('../includes/add-to-cart.ejs'),{food:foods}%>
+                            <form action='/cart' method="POST">
+                                <button class="btn" type="submit">Add to Cart</button>
+                                <input type="hidden" name="productId" value="<%=foods.id%>">
+                            </form>
                         </div>
                     </article>
                 <%}%>

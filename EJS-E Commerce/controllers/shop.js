@@ -18,9 +18,9 @@ exports.getFoods = (req, res, next) => {
 
 exports.getFood = (req,res,next) =>{
     const prodId = req.params.productId;
-    console.log(prodId)
-    Food.findById(prodId,foods =>{
-        res.render('shop/product-details',{food:foods,docTitle:foods.title,path:'/products'})
+    // console.log(prodId)
+    Food.findById(prodId,food =>{
+        res.render('shop/product-details',{foods:food,docTitle:food.title,path:'/products'})
     })
 }
 

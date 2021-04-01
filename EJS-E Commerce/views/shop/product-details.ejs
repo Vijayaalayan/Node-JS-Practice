@@ -4,16 +4,13 @@
 <body>
     <%-include('../includes/navigation.ejs')%>
     <main class="centered">
-        <h1><%=food.title%></h1>
+        <h1><%=foods.title%></h1>
         <hr>
         <div>
-            <img src="<%=food.data%>" alt="<%=food.title%>">
+            <img src="<%=foods.data%>" alt="<%=foods.title%>">
         </div>
-        <h2><%=food.price %> </h2>
-        <p><%=food.desc %> </p>
-        <form action="/cart" method="POST">
-            <button class="btn" type="submit">Add to Cart</button>
-            <input type="hidden" name="productId" value="<%=food.id%>">
-        </form>
+        <h2><%=foods.price %> </h2>
+        <p><%=foods.desc %> </p>
+        <%-include('../includes/add-to-cart.ejs')%>
     </main>
 <%-include('../includes/end.ejs')%>
