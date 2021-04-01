@@ -18,13 +18,20 @@ exports.getFoods = (req, res, next) => {
 
 exports.getFood = (req,res,next) =>{
     const prodId = req.params.productId;
-    Food.findById(prodId,food =>{
-        res.render('shop/product-details',{food:food,docTitle:food.title,path:'/products'})
+    console.log(prodId)
+    Food.findById(prodId,foods =>{
+        res.render('shop/product-details',{food:foods,docTitle:foods.title,path:'/products'})
     })
 }
 
 exports.getCart = (req,res,next) =>{
     res.render('shop/cart',{docTitle:'Cart',path : '/cart'})
+}
+
+exports.postCart= (req,res,next) =>{
+    const prodId = req.body.productId
+    console.log(prodId);
+    res.redirect('/cart');
 }
 
 exports.getCheckout = (req,res,next) =>{

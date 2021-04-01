@@ -19,7 +19,7 @@
                             <p class="product__description"><%=foods.desc%></p>
                         </div>
                         <div class="card__actions">
-                            <button class="btn">Add to Cart</button>
+                            <%-include('../includes/add-to-cart.ejs'),{food:foods}%>
                         </div>
                     </article>
                 <%}%>
