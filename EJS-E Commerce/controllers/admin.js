@@ -6,7 +6,7 @@ exports.getAddFood = (req,res,next) =>{
 }
 
 exports.postAddFood = (req,res,next)=>{
-    const food = new Food(req.body.title,req.body.image,req.body.price,req.body.desc);
+    const food = new Food(null,req.body.title,req.body.image,req.body.price,req.body.desc);
     food.save();
     res.redirect('/');
 }
@@ -34,8 +34,15 @@ exports.getEditFood = (req,res,next) =>{
 }
 
 exports.postEditFood = (req,res,next) =>{
-    console.log('hi')
-    return res.redirect('/')
+    const prodId = req.body.productId;
+    // console.log(prodId);
+    const updatedTitle = req.body.title;
+    const updatedData = req.body.image;
+    const updatedPrice = req.body.price;
+    const updatedDesc = req.body.desc;
+    const updatedProduct = new Food(prodId,updatedTitle,updatedData,updatedPrice,updatedDesc);
+    updatedProduct.save();
+    return res.redirect('/admin/foods')
 };
 
 exports.getFood = (req, res, next) => {

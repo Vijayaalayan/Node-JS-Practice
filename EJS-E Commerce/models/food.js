@@ -20,7 +20,8 @@ const getFoodsFromFile = cb=>{
 }
 
 module.exports = class Food{
-    constructor(title,data,price,desc){
+    constructor(id,title,data,price,desc){
+        this.id = id;
         this.title = title;
         this.data = data;
         this.price = price;
@@ -46,12 +47,23 @@ module.exports = class Food{
     // }
 
     save(){
-        this.id = Math.random().toString();
+        
         getFoodsFromFile(foods =>{
-            foods.push(this);
-            fs.writeFile(p,JSON.stringify(foods), (err)=>{
-                console.log(err);
-            })
+            if(this.id){
+                const existingProductIndex = foods.findIndex(food => food.id === this.id);
+                const updatedProducts = [...foods];
+                updatedProducts[existingProductIndex] = this;
+                fs.writeFile(p,JSON.stringify(updatedProducts), (err)=>{
+                    console.log(err);
+                })
+            }else{
+                this.id = Math.random().toString();
+                foods.push(this);
+                fs.writeFile(p,JSON.stringify(foods), (err)=>{
+                    console.log(err);
+                })
+            }
+            
         })
     }
 
