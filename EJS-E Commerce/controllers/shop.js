@@ -1,4 +1,5 @@
 const Food = require('../models/food');
+const Cart = require('../models/cart');
 
 exports.getIndex = (req, res, next) => {
     // res.sendFile(path.join(rootDir,'views','shop.html'));
@@ -31,6 +32,10 @@ exports.getCart = (req,res,next) =>{
 exports.postCart= (req,res,next) =>{
     const prodId = req.body.productId
     console.log(prodId);
+    Food.findById(prodId,food=>{
+        // console.log(food.price);
+        Cart.addFood(prodId,food.price);
+    })
     res.redirect('/cart');
 }
 
