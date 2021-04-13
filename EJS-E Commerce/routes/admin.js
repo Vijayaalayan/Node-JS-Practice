@@ -17,4 +17,5 @@ router.get('/foods',adminController.getFood);
 
 router.get('/edit-food/:productId',adminController.getEditFood)
 
+router.post('/edit-food',adminController.postEditFood)
 exports.routes = router;

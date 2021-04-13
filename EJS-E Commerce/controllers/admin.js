@@ -33,6 +33,11 @@ exports.getEditFood = (req,res,next) =>{
     
 }
 
+exports.postEditFood = (req,res,next) =>{
+    console.log('hi')
+    return res.redirect('/')
+};
+
 exports.getFood = (req, res, next) => {
     // res.sendFile(path.join(rootDir,'views','shop.html'));
     const foods = Food.fetchAll(foods =>{

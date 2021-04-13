@@ -5,7 +5,7 @@
 <body>
     <%-include('../includes/navigation.ejs')%>
     <main>
-            <form class="form-food"action="<%if(editing) {%>edit-food<%}else{%>add-food<%}%>" method="POST">
+            <form class="form-food"action="<%if(editing) {%>/admin/edit-food<%}else{%>add-food<%}%>" method="POST">
                 <div class="form-control">
                     <label for="title">Food Name</label>
                     <input type="text" name="title" id="title" value="<%if(editing) {%><%=food.title%><%}%>">
