@@ -67,6 +67,17 @@ module.exports = class Food{
         })
     }
 
+    static deleteById(id){
+        getFoodsFromFile(foods =>{
+            const updatedProducts = foods.filter(prod => prod.id !== id);
+            fs.writeFile(p,JSON.stringify(updatedProducts),err =>{
+                if(!err){
+                    
+                }
+            });
+        })
+    }
+
     static fetchAll(cb){
         getFoodsFromFile(cb);
     }

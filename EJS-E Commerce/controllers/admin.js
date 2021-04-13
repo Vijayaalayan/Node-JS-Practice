@@ -52,3 +52,9 @@ exports.getFood = (req, res, next) => {
     });
    
 }
+
+exports.postDeleteFood = (req,res,next) =>{
+    const prodId = req.body.productId; 
+    Food.deleteById(prodId);
+    return res.redirect('/admin/foods')
+}
