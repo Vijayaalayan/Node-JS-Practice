@@ -26,7 +26,23 @@ exports.getFood = (req,res,next) =>{
 }
 
 exports.getCart = (req,res,next) =>{
-    res.render('shop/cart',{docTitle:'Cart',path : '/cart'})
+    Cart.getCart(cart =>{
+        Food.fetchAll(foods=>{
+            const cartProducts = [];
+            for(food of foods){
+                const cartProductData = cart.foods.find(prod => prod.id === food.id);
+                if(cartProductData){
+                    cartProducts.push({productData:food,qty:cartProductData.qty})
+                }
+            }
+            res.render('shop/cart',{
+                docTitle:'Cart',
+                path : '/cart',
+                foods: cartProducts
+            })
+        })
+    })
+    
 }
 
 exports.postCart= (req,res,next) =>{
