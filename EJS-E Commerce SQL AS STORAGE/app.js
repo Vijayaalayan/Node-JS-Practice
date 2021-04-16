@@ -14,12 +14,14 @@ app.set('views','views');
 
 const adminData = require('./routes/admin.js');
 const shopRouter = require('./routes/shop');
-const errorController = require('./controllers/error')
+const errorController = require('./controllers/error');
+const db = require('./util/database');
 
 app.use(bodyParser.urlencoded({extended:false}));
 
 app.use(express.static(path.join(__dirname,'public')));
 
+db.execute('select * from foods');
 app.use('/admin',adminData.routes);
 app.use(shopRouter);
 app.use(errorController.get404Page)
