@@ -11,26 +11,12 @@ module.exports = class Food{
         this.desc = desc;
     }
 
-    // save(){
-    //     const p = path.join(
-    //         path.dirname(process.mainModule.filename),
-    //         'data',
-    //         'foods.json'    
-    //     );
-    //     fs.readFile(p, (err,fileContent) =>{
-    //         let foods = [];
-    //         if(!err){
-    //             foods = JSON.parse(fileContent);
-    //         }
-            // foods.push(this);
-            // fs.writeFile(p,JSON.stringify(foods), (err)=>{
-            //     console.log(err);
-            // })
-    //     })
-    // }
-
     save(){
-        
+        console.log(this.desc);
+        return db.execute(
+            'INSERT INTO foods (title, price,descr, data) VALUES (?, ?, ?, ?)',
+            [this.title, this.price,this.desc, this.data]
+        );
     }
 
     static deleteById(id) {

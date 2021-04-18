@@ -7,8 +7,16 @@ exports.getAddFood = (req,res,next) =>{
 
 exports.postAddFood = (req,res,next)=>{
     const food = new Food(null,req.body.title,req.body.image,req.body.price,req.body.desc);
-    food.save();
-    res.redirect('/');
+    console.log(req.body.desc);
+    food
+    .save()
+    .then(() =>{
+        res.redirect('/');
+    })
+    .catch(err =>{
+        console.log(err);
+    });
+    
 }
 
 exports.getEditFood = (req,res,next) =>{
