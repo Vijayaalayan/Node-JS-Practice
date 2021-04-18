@@ -3,16 +3,26 @@ const Cart = require('../models/cart');
 
 exports.getIndex = (req, res, next) => {
     // res.sendFile(path.join(rootDir,'views','shop.html'));
-    const foods = Food.fetchAll(foods =>{
-        res.render('shop/index', { food: foods, docTitle: 'Shop', path: '/'})
+    const foods = Food.fetchAll()
+    .then(([rows,fieldData])=>{
+        res.render('shop/index', {
+            food: rows, 
+            docTitle: 'Shop',
+            path: '/'
+        })
     });
    
 }
 
 exports.getFoods = (req, res, next) => {
     // res.sendFile(path.join(rootDir,'views','shop.html'));
-    const foods = Food.fetchAll(foods =>{
-        res.render('shop/product-list', { food: foods, docTitle: 'Shop', path: '/products'})
+    const foods = Food.fetchAll()
+    .then(([rows,fieldData])=>{
+        res.render('shop/product-list', { 
+            food: rows,
+            docTitle: 'Shop', 
+            path: '/products'
+        })
     });
    
 }
