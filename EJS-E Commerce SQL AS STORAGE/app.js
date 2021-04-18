@@ -21,7 +21,13 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 app.use(express.static(path.join(__dirname,'public')));
 
-db.execute('select * from foods').then().catch();
+db.execute('select * from foods')
+.then(result => {
+    console.log(result[0]);
+})
+.catch(err =>{
+    console.log(err);
+});
 app.use('/admin',adminData.routes);
 app.use(shopRouter);
 app.use(errorController.get404Page)
