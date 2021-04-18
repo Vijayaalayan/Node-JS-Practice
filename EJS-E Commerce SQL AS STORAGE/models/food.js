@@ -27,7 +27,7 @@ module.exports = class Food{
         return db.execute('select * from foods')
     }
 
-    static findById(id,cb){
-        
+    static findById(id){
+        return db.execute('select * from foods where foods.id = ?',[id]);
     }
 }
